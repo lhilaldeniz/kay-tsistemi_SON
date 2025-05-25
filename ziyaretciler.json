@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "ad": "Hilal",
+        "soyad": "DENİZ",
+        "tc": "345t3234532",
+        "telefon": "5387470713",
+        "tarih": "2025-04-30",
+        "sure": 13,
+        "ziyaret_sebebi": "Görüşme",
+        "ziyaret_edilen": "scscsa",
+        "notlar": "ascsdcs"
+    },
+    {
+        "id": 2,
+        "ad": "büsra",
+        "soyad": "celik",
+        "tc": "12345678909",
+        "telefon": "05387470713",
+        "tarih": "2025-05-15",
+        "sure": 20,
+        "ziyaret_sebebi": "Görüşme",
+        "ziyaret_edilen": "müdür",
+        "notlar": "sadfbgfdsfgnbfdghjgfdsfghj"
+    },
+    {
+        "id": 4,
+        "ad": "arda",
+        "soyad": "ırmak",
+        "tc": "34535646464",
+        "telefon": "05387470713",
+        "tarih": "2025-05-15",
+        "sure": 20,
+        "ziyaret_sebebi": "Görüşme",
+        "ziyaret_edilen": "müdür",
+        "notlar": "xcvxcvv"
+    }
+]

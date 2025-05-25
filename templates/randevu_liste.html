@@ -1,0 +1,45 @@
+{% extends "panel_base.html" %}
+
+{% block title %}Randevu Listesi{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header text-center">
+            <h3 class="mb-0">Randevu Listesi</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ad Soyad</th>
+                        <th>Telefon</th>
+                        <th>Neden</th>
+                        <th>Görüşülecek Kişi</th>
+                        <th>Tarih</th>
+                        <th>Saat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for randevu in randevular %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ randevu.ad_soyad }}</td>
+                        <td>{{ randevu.telefon }}</td>
+                        <td>{{ randevu.neden }}</td>
+                        <td>{{ randevu.hedef_kisi }}</td>
+                        <td>{{ randevu.tarih }}</td>
+                        <td>{{ randevu.saat }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center">Kayıtlı randevu bulunamadı.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

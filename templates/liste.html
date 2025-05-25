@@ -1,0 +1,82 @@
+{% extends "panel_base.html" %}
+
+{% block title %}Ziyaretçi Listesi{% endblock %}
+
+{% block content %}
+
+
+<style>
+ 
+  table thead th {
+    background-color: #a00505;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+
+  table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+  
+  table tbody tr:hover {
+    background-color: #ffe6e6;
+    transition: background-color 0.3s ease;
+  }
+
+  table td, table th {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+ 
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  
+  table {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+</style>
+
+
+    <h1 class="mb-4">Ziyaretçi Listesi</h1>
+
+    <table id="ziyaretciListesi" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Telefon</th>
+                <th>Tarih</th>
+                <th>Süre</th>
+                <th>Ziyaret Sebebi</th>
+                <th>Ziyaret Edilen</th>
+                <th>Notlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ziyaretci in ziyaretciler %}
+            <tr>
+                <td>{{ ziyaretci.ad }}</td>
+                <td>{{ ziyaretci.soyad }}</td>
+                <td>{{ ziyaretci.telefon }}</td>
+                <td>{{ ziyaretci.tarih }}</td>
+                <td>{{ ziyaretci.sure }} dakika</td>
+                <td>{{ ziyaretci.ziyaret_sebebi }}</td>
+                <td>{{ ziyaretci.ziyaret_edilen }}</td>
+                <td>{{ ziyaretci.notlar }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

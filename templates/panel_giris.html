@@ -1,0 +1,115 @@
+{% extends "panel_base.html" %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+
+<section class="hero-section text-center py-5 text-white" style="background: linear-gradient(135deg, #8e0e05, #a00505); box-shadow: inset 0 -10px 40px rgba(0,0,0,0.3);">
+  <div class="container">
+    {% if current_user.is_authenticated %}
+      <h1 class="display-4 fw-bold">Hoş geldiniz, {{ current_user.name or 'Kullanıcı' }}!</h1>
+      <p class="lead">Ziyaretçi yönetim panelinize buradan ulaşabilirsiniz.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Toplam Ziyaretçi</h5>
+              <p class="card-text">{{ total_visitors }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Bugün Eklenen</h5>
+              <p class="card-text">{{ today_visitors }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Toplam Kullanıcı</h5>
+              <p class="card-text">{{ total_users }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <a href="{{ url_for('liste') }}" class="btn btn-light btn-lg me-3">
+          <i class="fas fa-table me-1"></i> Ziyaretçi Listesi
+        </a>
+        <a href="{{ url_for('cikis') }}" class="btn btn-outline-light btn-lg">
+          <i class="fas fa-sign-out-alt me-1"></i> Çıkış Yap
+        </a>
+      </div>
+    {% else %}
+      <h1 class="display-4 fw-bold">Ziyaretçi Kayıt Sistemine Hoşgeldiniz</h1>
+      <p class="lead">Kolay ve güvenli ziyaretçi yönetimi için tasarlanmıştır</p>
+      <div class="mt-4">
+        <a href="{{ url_for('giris') }}" class="btn btn-light btn-lg me-3">
+          <i class="fas fa-sign-in-alt me-1"></i> Giriş Yap
+        </a>
+        <a href="{{ url_for('kayit') }}" class="btn btn-outline-light btn-lg">
+          <i class="fas fa-user-plus me-1"></i> Kayıt Ol
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <div class="text-danger mb-3" style="font-size: 2.5rem;">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <h5 class="fw-bold">Yeni Ziyaretçi Kaydı</h5>
+            <p class="text-muted">Yeni ziyaretçi kaydı oluşturun</p>
+            <a href="{{ url_for('kayit') }}" class="btn btn-danger">Kaydet</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <div class="text-success mb-3" style="font-size: 2.5rem;">
+              <i class="fas fa-users"></i>
+            </div>
+            <h5 class="fw-bold">Ziyaretçi Listesi</h5>
+            <p class="text-muted">Tüm ziyaretçileri listeleyin</p>
+            <a href="{{ url_for('liste') }}" class="btn btn-success">Listeyi Gör</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center">
+            <div class="text-warning mb-3" style="font-size: 2.5rem;">
+              <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <h5 class="fw-bold">Çıkış Yap</h5>
+            <p class="text-muted">Hesabınızdan çıkış yapın</p>
+            <a href="{{ url_for('cikis') }}" class="btn btn-warning">Çıkış</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between mb-4">
+      <input type="text" class="form-control w-50" placeholder="Ziyaretçi adı ile ara" id="searchVisitor">
+      <input type="date" class="form-control w-25" id="dateFilter">
+      <button class="btn btn-primary" id="filterBtn">Filtrele</button>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

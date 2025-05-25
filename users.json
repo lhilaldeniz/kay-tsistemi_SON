@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Hilal",
+        "email": "hilaldeniz941@gmail.com",
+        "password": "$2b$12$rA0p9O7dtQOy7arHiiy5A.aXvOQ9m/HnDPQVNPYpK/l6WgiF9GmW2"
+    },
+    {
+        "id": 2,
+        "name": "arda",
+        "email": "arda11@gmail.com",
+        "password": "$2b$12$62.Q.R2qHmJa9U0RqUVbDOWlUBgfrOV1BTH6PMvqtPIveeVxWexvK"
+    },
+    {
+        "id": 3,
+        "name": "Hilal",
+        "email": "hilaldeniz8541@gmail.com",
+        "password": "$2b$12$zTvWG10UMApE3tuXMv6lr.YvfCau7k7VNrflRJyDRJMYq7LJr1fUC"
+    },
+    {
+        "id": 4,
+        "name": "Hilal",
+        "email": "hilaldeniz951@gmail.com",
+        "password": "$2b$12$wA3lmTMqfwYvgKEG.sMYVOgXez63p2IIGXbnECkdCSs9l2TosSZga"
+    },
+    {
+        "id": 5,
+        "name": "melisa",
+        "email": "melisa@gmail.com",
+        "password": "$2b$12$F3qr1fKsSzNFLLJNbFleLeM4g4ruLjxHsmCd1qSEFT3o2.P9zGle2"
+    }
+]

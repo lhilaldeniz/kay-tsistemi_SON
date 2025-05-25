@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+<section class="hero-section text-center py-5 text-white" style="background: linear-gradient(135deg, #8e0e05, #a00505);">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Ziyaretçi Kayıt Sistemine Hoşgeldiniz</h1>
+        <p class="lead">Kolay ve güvenli ziyaretçi yönetimi için tasarlanmıştır</p>
+        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{{ url_for('kullanici_kayit') }}" class="btn btn-light btn-lg">Yeni Kayıt Oluştur</a>
+            <a href="{{ url_for('giris') }}" class="btn btn-outline-light btn-lg">Giriş Yap</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow text-center">
+                    <div class="card-body">
+                        <div class="text-danger mb-3" style="font-size: 2.5rem;">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h4>Hızlı Kayıt</h4>
+                        <p>30 saniyede ziyaretçi kaydı oluşturabilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow text-center">
+                    <div class="card-body">
+                        <div class="text-danger mb-3" style="font-size: 2.5rem;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Güvenli Giriş</h4>
+                        <p>Kullanıcı girişiyle yetkisiz erişim engellenir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow text-center">
+                    <div class="card-body">
+                        <div class="text-danger mb-3" style="font-size: 2.5rem;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Raporlama & Filtre</h4>
+                        <p>Geçmiş ziyaretleri kolayca görüntüleyip filtreleyebilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

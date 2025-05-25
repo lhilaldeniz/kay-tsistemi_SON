@@ -1,0 +1,58 @@
+{% extends "panel_base.html" %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block content %}
+<body class="bg-light">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container mt-3">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header text-center">
+            <h3 class="mb-0">Randevu Al</h3>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="ad_soyad" class="form-label">Ad Soyad</label>
+                    <input type="text" class="form-control" id="ad_soyad" name="ad_soyad" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefon" class="form-label">Telefon</label>
+                    <input type="tel" class="form-control" id="telefon" name="telefon" required>
+                </div>
+                <div class="mb-3">
+                    <label for="neden" class="form-label">Ziyaret Nedeni</label>
+                    <input type="text" class="form-control" id="neden" name="neden" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hedef_kisi" class="form-label">Görüşülecek Kişi</label>
+                    <input type="text" class="form-control" id="hedef_kisi" name="hedef_kisi" required>
+                </div>
+                <div class="mb-3">
+                    <label for="tarih" class="form-label">Tarih</label>
+                    <input type="date" class="form-control" id="tarih" name="tarih" required>
+                </div>
+                <div class="mb-3">
+                    <label for="saat" class="form-label">Saat</label>
+                    <input type="time" class="form-control" id="saat" name="saat" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Randevu Oluştur</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

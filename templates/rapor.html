@@ -1,0 +1,93 @@
+{% extends "panel_base.html" %}
+
+{% block title %}Ziyaretçi Raporları{% endblock %}
+
+{% block content %}
+<style>
+  .table th, .table td {
+    text-align: center;
+  }
+
+  .table thead {
+    background-color: #a00505;
+    color: #fff;
+  }
+
+  .card {
+    border: none;
+    border-radius: 0.75rem;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .display-6 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+
+<div class="container my-5">
+
+  <h1 class="mb-4">Ziyaretçi Raporları</h1>
+
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Toplam Ziyaretçi</h5>
+          <p class="display-6">{{ toplam_ziyaretci }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Bugün Eklenen</h5>
+          <p class="display-6">{{ bugunku_ziyaretci }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Sebebe Göre En Yoğun</h5>
+          <p class="display-6">{{ en_yogun_sebep }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle">
+      <thead class="table-danger text-center">
+        <tr>
+          <th>Ad</th>
+          <th>Soyad</th>
+          <th>Telefon</th>
+          <th>Tarih</th>
+          <th>Ziyaret Sebebi</th>
+          <th>Ziyaret Edilen</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ziyaretci in ziyaretciler %}
+        <tr>
+          <td>{{ ziyaretci.ad }}</td>
+          <td>{{ ziyaretci.soyad }}</td>
+          <td>{{ ziyaretci.telefon }}</td>
+          <td>{{ ziyaretci.tarih }}</td>
+          <td>{{ ziyaretci.ziyaret_sebebi }}</td>
+          <td>{{ ziyaretci.ziyaret_edilen }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+{% endblock %}

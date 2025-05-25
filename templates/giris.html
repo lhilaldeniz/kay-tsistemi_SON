@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Giriş Yap{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="login-container mx-auto mt-5 p-4 bg-white rounded-3 shadow-sm" style="max-width: 450px;">
+    <h2 class="text-center text-danger mb-4">
+      <i class="fas fa-sign-in-alt me-2"></i>Giriş Yap
+    </h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="alert alert-{{ category }} py-2">
+            {{ msg }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('giris') }}">
+      <div class="mb-3">
+        <label for="email" class="form-label">E-posta</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="E-posta adresinizi girin"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Şifre</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Şifrenizi girin"
+          required
+        >
+      </div>
+
+  
+      <button type="submit" class="btn btn-danger w-100 login-btn">
+        Giriş Yap
+      </button>
+    </form>
+
+    <a href="{{ url_for('ana_sayfa') }}" class="back-link d-block text-center mt-3">
+      ← Ana Sayfaya Dön
+    </a>
+
+    <div class="text-center mt-3">
+      <p>Hesabınız yok mu? <a href="{{ url_for('kullanici_kayit') }}">Yeni Kayıt Ol</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+<style>
+
+  .login-btn {
+    background-color: #a00505;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .login-btn:hover {
+    background-color: #8e0e05;
+    transform: scale(1.05);
+  }
+
+  
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s;
+  }
+
+  .form-control:focus {
+    border-color: #a00505;
+    box-shadow: 0 0 5px rgba(160, 5, 5, 0.5);
+  }
+
+ 
+  .back-link {
+    font-size: 14px;
+    color: #a00505;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  
+  .login-container {
+    max-width: 450px;
+    width: 100%;
+    padding: 30px;
+  }
+
+ 
+  @media (max-width: 576px) {
+    .login-container {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+</style>
